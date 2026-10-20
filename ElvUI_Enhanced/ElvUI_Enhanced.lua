@@ -101,7 +101,7 @@ function addon:DBConversions()
 	end
 	if EnhancedDB and EnhancedDB.UnitClass and next(EnhancedDB.UnitClass) then
 		local classMap = {}
-		for i, class in ipairs(CLASS_SORT_ORDER) do
+		for i, class in ipairs(CLASS_SORT_ORDER_ALL or CLASS_SORT_ORDER) do
 			classMap[class] = i
 		end
 		for name, class in pairs(EnhancedDB.UnitClass) do

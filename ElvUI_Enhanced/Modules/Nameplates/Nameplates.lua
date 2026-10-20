@@ -114,7 +114,7 @@ local function UnitClassHook(self, frame, unitType)
 				return class
 			end
 		elseif EnhancedDB.UnitClass[unitName] then
-			return CLASS_SORT_ORDER[EnhancedDB.UnitClass[unitName]]
+			return (CLASS_SORT_ORDER_ALL or CLASS_SORT_ORDER)[EnhancedDB.UnitClass[unitName]]
 		else
 			return NP:GetUnitClassByGUID(frame)
 		end
@@ -573,7 +573,7 @@ function ENP:Initialize()
 		EnhancedDB.NPCList = {}
 	end
 
-	for i, class in ipairs(CLASS_SORT_ORDER) do
+	for i, class in ipairs(CLASS_SORT_ORDER_ALL or CLASS_SORT_ORDER) do
 		classMap[class] = i
 	end
 

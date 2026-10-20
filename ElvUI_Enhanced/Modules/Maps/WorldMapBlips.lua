@@ -16,14 +16,15 @@ local BLIP_TEX_COORDS = {
 	["SHAMAN"] = {0.75, 0.875, 0, 0.25},
 	["MAGE"] = {0.875, 1, 0, 0.25},
 	["WARLOCK"] = {0, 0.125, 0.25, 0.5},
-	["DRUID"] = {0.25, 0.375, 0.25, 0.5}
+	["DRUID"] = {0.25, 0.375, 0.25, 0.5},
+	["DEMONHUNTER"] = {0.375, 0.5, 0.25, 0.5}
 }
 
 local BLIP_RAID_Y_OFFSET = 0.5
 
 local function OnShowParty(self)
 	local _, class = UnitClass(self.unit)
-	if not class then return end
+	if not class or not BLIP_TEX_COORDS[class] then return end
 
 	if self.class ~= class then
 		self.class = class
@@ -35,7 +36,7 @@ local function OnShowRaid(self)
 	if not self.unit then return end -- players in the battleground not in your raid
 
 	local _, class = UnitClass(self.unit)
-	if not class then return end
+	if not class or not BLIP_TEX_COORDS[class] then return end
 
 	local inParty = UnitInParty(self.unit)
 

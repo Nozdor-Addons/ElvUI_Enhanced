@@ -196,6 +196,14 @@ HarmSpells["WARLOCK"] = {
     17877, -- ["Shadowburn"], -- 20 (Destructive Reach: 22, 24)
 }
 
+FriendSpells["DEMONHUNTER"] = {}
+HarmSpells["DEMONHUNTER"] = {
+    204157, -- ["Throw Glaive"], -- 30
+    371706, -- ["Consume"], -- Devourer
+    183752, -- ["Disrupt"], -- 10
+    162794, -- ["Chaos Strike"], -- 5
+}
+
 -- Items [Special thanks to Maldivia for the nice list]
 
 local FriendItems  = {
